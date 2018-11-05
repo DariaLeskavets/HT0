@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.LinkPermission;
 import java.util.ArrayList;
 import java.util.zip.CRC32;
@@ -36,89 +37,89 @@ public class Main {
 
         out.write("<!DOCTYPE html><body><table><center>");
 
-       for(File f : array){
-            try {
-                MP3 audio = new MP3(f);
-                ArrayList<File> arrayOfAlbums = new ArrayList<>();
-                for(File ar : newArray) {
-                    MP3 artist = new MP3(ar);
-                    if (audio.getBand() == artist.getBand()) {
-                        arrayOfAlbums.add(ar);
-                    }
-                }
+       for(File f : array) {
+           try {
+               MP3 audio = new MP3(f);
+               ArrayList<File> arrayOfAlbums = new ArrayList<>();
+               for (File ar : newArray) {
+                   MP3 artist = new MP3(ar);
+                   if (audio.getBand() == artist.getBand()) {
+                       arrayOfAlbums.add(ar);
+                   }
+               }
 
-                if(arrayOfAlbums.contains(f)) {
-                    out.write("<tr>");
-                    out.write("<td>");
-                    if (audio.getBand() == null) {
-                        out.write("Unknown artist");
-                    } else {
-                        out.write(audio.getBand());
-                    }
-                    out.write("</td>");
-                    out.write("</tr>");
+               if (arrayOfAlbums.contains(f)) {
+                   out.write("<tr>");
+                   out.write("<td>");
+                   if (audio.getBand() == null) {
+                       out.write("Unknown artist");
+                   } else {
+                       out.write(audio.getBand());
+                   }
+                   out.write("</td>");
+                   out.write("</tr>");
 
-                    for (File a : arrayOfAlbums) {
-                        if (newArray.contains(a)) {
-                            newArray.remove(a);
-                        }
-                    }
+                   for (File a : arrayOfAlbums) {
+                       if (newArray.contains(a)) {
+                           newArray.remove(a);
+                       }
+                   }
 
-                    ArrayList<File> albums = new ArrayList<>(arrayOfAlbums);
+                   ArrayList<File> albums = new ArrayList<>(arrayOfAlbums);
 
-                    for (File a : arrayOfAlbums) {
-                        MP3 audio1 = new MP3(a);
+                   for (File a : arrayOfAlbums) {
+                       MP3 audio1 = new MP3(a);
 
-                        ArrayList<File> arrayOfTracks = new ArrayList<>();
+                       ArrayList<File> arrayOfTracks = new ArrayList<>();
 
-                        for (File b : albums) {
-                            MP3 audio2 = new MP3(b);
-                            if (audio1.getAlbum() == audio2.getAlbum()) {
-                                arrayOfTracks.add(b);
-                            }
-                        }
+                       for (File b : albums) {
+                           MP3 audio2 = new MP3(b);
+                           if (audio1.getAlbum() == audio2.getAlbum()) {
+                               arrayOfTracks.add(b);
+                           }
+                       }
 
-                        for (File n : arrayOfTracks) {
-                            if (albums.contains(n)) {
-                                albums.remove(n);
-                            }
-                        }
+                       for (File n : arrayOfTracks) {
+                           if (albums.contains(n)) {
+                               albums.remove(n);
+                           }
+                       }
 
-                        if (arrayOfTracks.contains(a)) {
-                            out.write("<tr style =\"text-indent: 25px\">");
-                            out.write("<td>");
-                            if (audio1.getAlbum() == null) {
-                                out.write("Unknown album");
-                            } else {
-                                out.write(audio1.getAlbum());
-                            }
-                            out.write("</td>");
-                            out.write("</tr>");
+                       if (arrayOfTracks.contains(a)) {
+                           out.write("<tr style =\"text-indent: 25px\">");
+                           out.write("<td>");
+                           if (audio1.getAlbum() == null) {
+                               out.write("Unknown album");
+                           } else {
+                               out.write(audio1.getAlbum());
+                           }
+                           out.write("</td>");
+                           out.write("</tr>");
 
-                            for (File t : arrayOfTracks) {
-                                MP3 track = new MP3(t);
-                                out.write("<tr>");
-                                out.write("<td style =\"text-indent: 50px\">");
-                                if (track.getTitle() == null) {
-                                    out.write("Unknown track");
-                                } else {
-                                    out.write(track.getTitle());
-                                }
-                                out.write("</td>");
-                                out.write("<td style =\"text-indent: 10px\">");
-                                out.write(String.valueOf(track.getAudioDuration()));
-                                out.write("</td>");
-                                out.write("<td style =\"text-indent: 10px\">");
-                                out.write(t.getPath());
-                                out.write("</td>");
-                                out.write("</tr>");
-                            }
-                            arrayOfTracks.clear();
+                           for (File t : arrayOfTracks) {
+                               MP3 track = new MP3(t);
+                               out.write("<tr>");
+                               out.write("<td style =\"text-indent: 50px\">");
+                               if (track.getTitle() == null) {
+                                   out.write("Unknown track");
+                               } else {
+                                   out.write(track.getTitle());
+                               }
+                               out.write("</td>");
+                               out.write("<td style =\"text-indent: 10px\">");
+                               out.write(String.valueOf(track.getAudioDuration()));
+                               out.write("</td>");
+                               out.write("<td style =\"text-indent: 10px\">");
+                               out.write(t.getPath());
+                               out.write("</td>");
+                               out.write("</tr>");
+                           }
+                           arrayOfTracks.clear();
 
-                        }
-                    }
-                }
-            }catch (NullPointerException e){}
+                       }
+                   }
+               }
+           } catch (NullPointerException e) {}
        }
 
         out.write("</center></table></body></html>");
@@ -127,7 +128,7 @@ public class Main {
 
 
         //отсортированные по констрольной сумме дубликаты
-        File sortByCheckSum = new File("D://byCheckSum");
+        File sortByCheckSum = new File("D://byCheckSum.html");
 
         FileWriter out1 = new FileWriter(sortByCheckSum);
         file.createNewFile();
@@ -135,18 +136,58 @@ public class Main {
         out1.write("<!DOCTYPE html><body><table><center>");
 
         ArrayList<File> copyArray = new ArrayList<>(array);
-        for(File a : array){
-            ArrayList<File> dublic = new ArrayList<>();
-            Checksum checksum1 = new CRC32();
-            //long checksum =
 
-           // MP3 audio = new MP3(a);
+        int countOfDub = 0;
+
+        for(File a : array){
+
+            ArrayList<File> dublic = new ArrayList<>();
+
+            byte bytes1[] = Files.readAllBytes(a.toPath());
+            Checksum checksum1 = new CRC32();
+            checksum1.update(bytes1);
+            long checksum1Value = checksum1.getValue();
+
             for(File b : copyArray){
-                MP3 audio1 = new MP3(b);
-                //if(audio.get)
+
+                byte bytes2[] = Files.readAllBytes(b.toPath());
+                Checksum checksum2 = new CRC32();
+                checksum2.update(bytes2);
+                long checksum2Value = checksum2.getValue();
+
+                if(checksum1Value == checksum2Value){
+                    dublic.add(b);
+                }
             }
+
+            for(File f : dublic){
+                if(copyArray.contains(f)){
+                    copyArray.remove(f);
+                }
+            }
+
+            if(dublic.size() > 1) {
+                countOfDub++;
+                out1.write("<tr>");
+                out1.write("<td>");
+                out1.write("Дубликаты-" + countOfDub);
+                out1.write("</td>");
+                out1.write("</tr>");
+                for (File f : dublic) {
+                    out1.write("<tr>");
+                    out1.write("<td style=\"text-indent: 10px\">");
+                    out1.write(f.getPath());
+                    out1.write("</td>");
+                    out1.write("</tr>");
+                }
+            }
+
+            dublic.clear();
         }
 
+        out1.write("</center></table></body></html>");
+        out1.flush();
+        out1.close();
 
     }
 
