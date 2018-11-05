@@ -127,10 +127,10 @@ public class Main {
         out.close();
 
 
-        //отсортированные по констрольной сумме дубликаты
-        File sortByCheckSum = new File("D://byCheckSum.html");
+        //полностью идентичные дубликаты
+        File dublicFiles = new File("D://dublicFiles.html");
 
-        FileWriter out1 = new FileWriter(sortByCheckSum);
+        FileWriter out1 = new FileWriter(dublicFiles);
         file.createNewFile();
 
         out1.write("<!DOCTYPE html><body><table><center>");
@@ -188,6 +188,73 @@ public class Main {
         out1.write("</center></table></body></html>");
         out1.flush();
         out1.close();
+
+
+        //дубликаты, отличающиеся по контрольной сумме
+        File byCheckSum = new File("D://byCheckSum.html");
+
+        FileWriter out2 = new FileWriter(byCheckSum);
+        file.createNewFile();
+
+        out2.write("<!DOCTYPE html><body><table><center>");
+
+        ArrayList<File> copyArray1 = new ArrayList<>(array);
+
+        for(File a : array){
+            ArrayList<File> dublic = new ArrayList<>();
+
+            MP3 audio1 = new MP3(a);
+
+            byte bytes1[] = Files.readAllBytes(a.toPath());
+            Checksum checksum1 = new CRC32();
+            checksum1.update(bytes1);
+            long checksum1Value = checksum1.getValue();
+
+            for(File b : copyArray) {
+                MP3 audio2 = new MP3(b);
+
+                byte bytes2[] = Files.readAllBytes(b.toPath());
+                Checksum checksum2 = new CRC32();
+                checksum2.update(bytes2);
+                long checksum2Value = checksum2.getValue();
+
+                if (audio1.getAlbum() == audio2.getAlbum() &&
+                        audio1.getBand() == audio2.getBand() &&
+                        audio1.getTitle() == audio2.getTitle() &&
+                        checksum1Value != checksum2Value) {
+                    dublic.add(b);
+                }
+            }
+
+            for(File f : dublic){
+                if(copyArray.contains(f)){
+                    copyArray.remove(f);
+                }
+            }
+
+                if(dublic.size() > 1) {
+                    out1.write("<tr>");
+                    out1.write("<td>");
+                    out1.write("Исполнитель " + audio1.getBand() +
+                            ", Альбом " + audio1.getAlbum() +
+                            ", Композиция " + audio1.getTitle());
+                    out1.write("</td>");
+                    out1.write("</tr>");
+                    for (File g : dublic) {
+                        out1.write("<tr>");
+                        out1.write("<td style=\"text-indent: 10px\">");
+                        out1.write(g.getPath());
+                        out1.write("</td>");
+                        out1.write("</tr>");
+                    }
+                }
+                dublic.clear();
+        }
+
+        out2.write("</center></table></body></html>");
+        out2.flush();
+        out2.close();
+
 
     }
 
