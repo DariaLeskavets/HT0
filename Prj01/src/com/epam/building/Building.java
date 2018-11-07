@@ -3,6 +3,7 @@ package com.epam.building;
 import com.epam.building.Exceptions.IlluminanceTooLittleException;
 import com.epam.building.Exceptions.IlluminanceTooMuchException;
 import com.epam.building.Exceptions.SpaceUsageTooMuchException;
+import com.epam.furniture.Furniture;
 
 import java.util.ArrayList;
 
@@ -30,18 +31,29 @@ public class Building implements Illumination, Space{
         this.rooms = rooms;
     }
 
-    public void addRoom(String nameOfRoom, double square, int numberOfWind){
+    public void addRoom(String nameOfRoom, double square, int numberOfWind) {
         Room room = new Room(nameOfRoom, square, numberOfWind);
         this.rooms.add(room);
+    }
+
+    public Room getRoom (String name){
+        Room room = null;
+        for(Room r : rooms){
+            if(r.getNameOfRoom().equals(name)){
+                room = r;
+                break;
+            }
+        }
+        return room;
     }
 
     //check on building requirements
     public boolean isValid() throws SpaceUsageTooMuchException, IlluminanceTooMuchException, IlluminanceTooLittleException {
         boolean res = true;
         for(Room r : rooms) {
-            if ((Space.space(r)) > (r.getSquare() * 0.7)) {
+            if ((Space.maxSpace(r)) > (r.getSquare() * 0.7)) {
                 res = false;
-                throw new SpaceUsageTooMuchException(Space.space(r));
+                throw new SpaceUsageTooMuchException(Space.maxSpace(r));
             }
             if ((Illumination.illum(r)) > 4000) {
                 res = false;
@@ -53,7 +65,6 @@ public class Building implements Illumination, Space{
         }
         return res;
     }
-
 
     public void describe() throws SpaceUsageTooMuchException, IlluminanceTooMuchException, IlluminanceTooLittleException {
         boolean isVal = isValid();
@@ -68,7 +79,20 @@ public class Building implements Illumination, Space{
                 System.out.print(l.getIllum() + "лк");
             }
             System.out.println(")");
-            System.out.print("Площадь = " + Space.space(r) + " м^2 (занято ");
+            System.out.print("Площадь = " + r.getSquare() + " м^2 (занято " +
+                    Space.minSpase(r) + "-"+ Space.maxSpace(r)+ " м^2, гарантированно свободно " +
+                    (r.getSquare() - Space.maxSpace(r)) + " м^2 или " +
+                    (((r.getSquare() - Space.maxSpace(r))/ r.getSquare())*100) + "% площади)");
+            if(!r.getFurn().isEmpty()){
+                System.out.println("Мебель:");
+                for(Furniture f : r.getFurn()){
+                    System.out.println(f.getNameOfFurn() + " (площадь ");
+                   // if(f.)
+                }
+                System.out.println();
+            }else{
+                System.out.println("Мебели нет");
+            }
         }
 
     }

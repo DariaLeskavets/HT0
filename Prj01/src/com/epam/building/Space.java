@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public interface Space {
 
-    static double space(Room room){
+    static double maxSpace(Room room){
         double sqr = room.getSquare();
         double sum = 0;
         ArrayList<Furniture> furn = room.getFurn();
@@ -15,4 +15,16 @@ public interface Space {
         }
         return sum;
     }
+
+    static double minSpase(Room room){
+        double sqr = room.getSquare();
+        double sum = 0;
+        ArrayList<Furniture> furn = room.getFurn();
+        for(Furniture f : furn){
+            sum += f.getMinSquare();
+        }
+        return sum;
+    }
+
+
 }
