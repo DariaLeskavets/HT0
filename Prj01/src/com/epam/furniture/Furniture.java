@@ -3,33 +3,33 @@ package com.epam.furniture;
 public abstract class Furniture {
 
     private String nameOfFurn;
-    private double minSquare;
-    private double maxSquare;
+    private int minSquare;
+    private int maxSquare;
 
-    public Furniture(String nameOfFurn, double maxSquare){
+    public Furniture(String nameOfFurn, int maxSquare){
         this.nameOfFurn = nameOfFurn;
         this.maxSquare = maxSquare;
     }
 
-    public Furniture(String nameOfFurn, double minSquare, double maxSquare){
+    public Furniture(String nameOfFurn, int minSquare, int maxSquare){
         this.nameOfFurn = nameOfFurn;
         this.minSquare = minSquare;
         this.maxSquare = maxSquare;
     }
 
-    public double getMinSquare() {
+    public int getMinSquare() {
         return minSquare;
     }
 
-    public void setMinSquare(double minSquare) {
+    public void setMinSquare(int minSquare) {
         this.minSquare = minSquare;
     }
 
-    public double getMaxSquare() {
+    public int getMaxSquare() {
         return maxSquare;
     }
 
-    public void setMaxSquare(double maxSquare) {
+    public void setMaxSquare(int maxSquare) {
         this.maxSquare = maxSquare;
     }
 

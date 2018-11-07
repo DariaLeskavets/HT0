@@ -9,7 +9,7 @@ public interface Space {
     static double maxSpace(Room room){
         double sqr = room.getSquare();
         double sum = 0;
-        ArrayList<Furniture> furn = room.getFurn();
+        ArrayList<Furniture> furn = room.getArrayfurn();
         for(Furniture f : furn){
             sum += f.getMaxSquare();
         }
@@ -19,7 +19,7 @@ public interface Space {
     static double minSpase(Room room){
         double sqr = room.getSquare();
         double sum = 0;
-        ArrayList<Furniture> furn = room.getFurn();
+        ArrayList<Furniture> furn = room.getArrayfurn();
         for(Furniture f : furn){
             sum += f.getMinSquare();
         }

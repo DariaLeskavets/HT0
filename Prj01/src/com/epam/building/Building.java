@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Building implements Illumination, Space{
     private String nameOfBuilding;
-    private ArrayList<Room> rooms;
+    private ArrayList<Room> rooms = new ArrayList<>();
 
     public Building(String name) {
         this.nameOfBuilding = name;
@@ -31,8 +31,8 @@ public class Building implements Illumination, Space{
         this.rooms = rooms;
     }
 
-    public void addRoom(String nameOfRoom, double square, int numberOfWind) {
-        Room room = new Room(nameOfRoom, square, numberOfWind);
+    public void addRoom(String name, int sqr, int numberOfWin) {
+        Room room = new Room(name, sqr, numberOfWin);
         this.rooms.add(room);
     }
 
@@ -73,25 +73,40 @@ public class Building implements Illumination, Space{
         }
         for(Room r : rooms){
             System.out.println("  " + r.getNameOfRoom());
-            System.out.print("Освещенность = " + Illumination.illum(r) +
-                    " (" + r.getNumberOfWindows() + " окна по 700 лк, лампочки ");
+            System.out.print("    Освещенность = " + Illumination.illum(r) +
+                    " (" + r.getNumberOfWindows() + " окна по 700 лк");
+            if(!r.getLights().isEmpty()){
+                System.out.print(", лампочки ");
             for(Light l : r.getLights()) {
-                System.out.print(l.getIllum() + "лк");
+               if((r.getLights().indexOf(l)) == (r.getLights().size() - 1)){
+                   System.out.print(l.getIllum() + " лк");
+               } else{
+                   System.out.print(l.getIllum() + " лк, ");
+               }
+            }
             }
             System.out.println(")");
-            System.out.print("Площадь = " + r.getSquare() + " м^2 (занято " +
-                    Space.minSpase(r) + "-"+ Space.maxSpace(r)+ " м^2, гарантированно свободно " +
-                    (r.getSquare() - Space.maxSpace(r)) + " м^2 или " +
-                    (((r.getSquare() - Space.maxSpace(r))/ r.getSquare())*100) + "% площади)");
-            if(!r.getFurn().isEmpty()){
-                System.out.println("Мебель:");
-                for(Furniture f : r.getFurn()){
-                    System.out.println(f.getNameOfFurn() + " (площадь ");
-                   // if(f.)
+            System.out.print("    Площадь = " + r.getSquare() + " м^2 ");
+            if(r.getArrayfurn().isEmpty())  {
+                System.out.println("(свободно 100%)");
+            }else {
+                System.out.println("(занято " +
+                        Space.minSpase(r) + "-" + Space.maxSpace(r) + " м^2, гарантированно свободно " +
+                        (r.getSquare() - Space.maxSpace(r)) + " м^2 или " +
+                        (((r.getSquare() - Space.maxSpace(r)) / r.getSquare()) * 100) + "% площади)");
+            }
+            if(!r.getArrayfurn().isEmpty()){
+                System.out.println("    Мебель:");
+                for(Furniture f : r.getArrayfurn()){
+                    System.out.print("      "+ f.getNameOfFurn() + " (площадь ");
+                   if(f.getMinSquare() != 0){
+                       System.out.println("от " + f.getMinSquare() + " м^2 до " + f.getMaxSquare() + " м^2)");
+                   } else{
+                       System.out.println(f.getMaxSquare() + " м^2)");
+                   }
                 }
-                System.out.println();
             }else{
-                System.out.println("Мебели нет");
+                System.out.print("    Мебели нет");
             }
         }
 

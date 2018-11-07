@@ -6,23 +6,23 @@ import java.util.ArrayList;
 
 public class Room {
     private String nameOfRoom;
-    private double square;
+    private int square;
     private int numberOfWindows;
-    private ArrayList<Light> lights;
-    private ArrayList<Furniture> furn;
+    private ArrayList<Light> lights = new ArrayList<Light>();
+    private ArrayList<Furniture> arrayfurn = new ArrayList<Furniture>();
 
-    public Room(String nameOfRoom, double square, int numberOfWindows) {
+    public Room(String nameOfRoom, int square, int numberOfWindows) {
         this.nameOfRoom = nameOfRoom;
         this.square = square;
         this.numberOfWindows = numberOfWindows;
     }
 
-    public ArrayList<Furniture> getFurn() {
-        return furn;
+    public ArrayList<Furniture> getArrayfurn() {
+        return arrayfurn;
     }
 
-    public void setFurn(ArrayList<Furniture> furn) {
-        this.furn = furn;
+    public void setArrayfurn(ArrayList<Furniture> furn) {
+        this.arrayfurn = furn;
     }
 
     public String getNameOfRoom() {
@@ -33,11 +33,11 @@ public class Room {
         this.nameOfRoom = nameOfRoom;
     }
 
-    public double getSquare() {
+    public int getSquare() {
         return square;
     }
 
-    public void setSquare(double square) {
+    public void setSquare(int square) {
         this.square = square;
     }
 
@@ -58,12 +58,12 @@ public class Room {
     }
 
     //add lights and items of furniture
-    public void add (Object object){
-        if(object.getClass() == lights.getClass()){
-            lights.add((Light) object);
-        } else if(object.getClass() == furn.getClass()){
-            furn.add((Furniture) object);
-        }
+    public void addLights (Light light){
+            lights.add(light);
+    }
+
+    public void addFurn (Furniture furn){
+       arrayfurn.add(furn);
     }
 
 }
