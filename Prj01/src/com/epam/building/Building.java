@@ -1,5 +1,6 @@
 package com.epam.building;
 
+import com.epam.building.Exceptions.IlluminanceTooLittleException;
 import com.epam.building.Exceptions.IlluminanceTooMuchException;
 import com.epam.building.Exceptions.SpaceUsageTooMuchException;
 
@@ -35,21 +36,26 @@ public class Building implements Illumination, Space{
     }
 
     //check on building requirements
-    public boolean isValid() throws SpaceUsageTooMuchException, IlluminanceTooMuchException{
+    public boolean isValid() throws SpaceUsageTooMuchException, IlluminanceTooMuchException, IlluminanceTooLittleException {
         boolean res = true;
-        for(Room r : rooms)
-            if (Illumination.illum(r) < 300 && Illumination.illum(r) > 4000) {
-                if (Space.space(r) > r.getSquare() * 0.7) {
-                    res = false;
-                } else throw new SpaceUsageTooMuchException(Space.space(r));
-            } else {
-                throw new IlluminanceTooMuchException(Illumination.illum(r));
+        for(Room r : rooms) {
+            if ((Space.space(r)) > (r.getSquare() * 0.7)) {
+                res = false;
+                throw new SpaceUsageTooMuchException(Space.space(r));
             }
+            if ((Illumination.illum(r)) > 4000) {
+                res = false;
+                throw new IlluminanceTooMuchException(Illumination.illum(r));
+            } else if((Illumination.illum(r)) < 300 ){
+                res = false;
+                throw  new IlluminanceTooLittleException(Illumination.illum(r));
+            }
+        }
         return res;
     }
 
 
-    public void describe() throws SpaceUsageTooMuchException, IlluminanceTooMuchException {
+    public void describe() throws SpaceUsageTooMuchException, IlluminanceTooMuchException, IlluminanceTooLittleException {
         boolean isVal = isValid();
         if(isVal){
             System.out.println(nameOfBuilding);

@@ -1,12 +1,12 @@
 package com.epam.building.Exceptions;
 
-public class IlluminanceTooMuchException extends Exception {
+public class IlluminanceTooLittleException extends Exception {
 
     private double illum;
 
-    public IlluminanceTooMuchException(double illum) {
+    public IlluminanceTooLittleException(double illum) {
         this.illum = illum;
-        System.out.println(illum + " is much lighting requirements.");
+        System.out.println(illum + " is little lighting requirements.");
     }
 
     public double getIllum() {
