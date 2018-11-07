@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="688a03c7-f918-4b86-aa18-92c918819c77" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Prj01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Prj01/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/epam/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/epam/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/epam/resources/log4j2.properties" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/" />
@@ -19,7 +16,7 @@
     <session id="-1421030331">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.0" value="6" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="3" />
@@ -67,7 +64,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/epam/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
+            <state relative-caret-position="-2924">
               <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
             </state>
           </provider>
@@ -245,16 +242,15 @@
       <workItem from="1541598471046" duration="8850000" />
       <workItem from="1541607622629" duration="1210000" />
       <workItem from="1541613747086" duration="437000" />
-      <workItem from="1541614405911" duration="1756000" />
+      <workItem from="1541614405911" duration="1863000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48673000" />
+    <option name="totallyTimeSpent" value="48780000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="632" y="8" width="908" height="832" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14386792" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -336,7 +332,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/epam/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="-2924">
           <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
         </state>
       </provider>

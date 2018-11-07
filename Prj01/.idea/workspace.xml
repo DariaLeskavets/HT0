@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bd0977c-2e57-4d27-ad76-5ffd69836044" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Prj01/com/epam/building/Building.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Prj01/com/epam/building/Building.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/epam/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/epam/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/epam/building/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/epam/building/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/epam/building/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/epam/building/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/epam/building/Space.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/epam/building/Space.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/epam/furniture/Armchair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/epam/furniture/Armchair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/epam/furniture/Chair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/epam/furniture/Chair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/epam/furniture/Furniture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/epam/furniture/Furniture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/epam/furniture/Sofa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/epam/furniture/Sofa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/epam/furniture/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/epam/furniture/Table.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Prj02/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Prj02/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Prj02/src/com/epam/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Prj02/src/com/epam/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Prj02/src/com/epam/resources/log4j2.properties" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/" />
@@ -58,7 +48,7 @@
     <session id="-1224516827">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.11" value="1" />
@@ -241,7 +231,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541613547941" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541613737748" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Prj02" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
   </component>
@@ -292,16 +282,15 @@
       <workItem from="1541421233617" duration="622000" />
       <workItem from="1541501489744" duration="991000" />
       <workItem from="1541588358281" duration="2941000" />
-      <workItem from="1541607377102" duration="4669000" />
+      <workItem from="1541607377102" duration="4866000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30376000" />
+    <option name="totallyTimeSpent" value="30573000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="632" y="8" width="908" height="832" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14622642" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
