@@ -1,0 +1,26 @@
+нояб. 07, 2018 9:39:59 ПП Main createHtmlDublic
+INFO: Creation html-page of full dublicates lists: dublicFiles.html
+нояб. 07, 2018 9:39:59 ПП Main createHtmlDublic
+INFO: Count checksum of all mp3 files, comparison and creating lists of duplicates
+нояб. 07, 2018 9:39:59 ПП Main createHtmlDublic
+INFO: Write list of dublicates in html-file
+нояб. 07, 2018 9:39:59 ПП Main createHtmlDublic
+INFO: Dublicates1
+нояб. 07, 2018 9:39:59 ПП Main createHtmlDublic
+INFO: C:\Users\User\Desktop\music\аипаввм\Звери - Капканы — копия — копия.mp3
+нояб. 07, 2018 9:39:59 ПП Main createHtmlDublic
+INFO: C:\Users\User\Desktop\music\аипаввм\Звери - Капканы — копия.mp3
+нояб. 07, 2018 9:39:59 ПП Main createHtmlDublic
+INFO: C:\Users\User\Desktop\music\аипаввм\Звери - Капканы.mp3
+нояб. 07, 2018 9:40:00 ПП Main createHtmlByCheckSum
+INFO: Creation html-page of dublicates lists by artist, album and title(not by checksum):  byCheckSum.html
+нояб. 07, 2018 9:40:00 ПП Main createHtmlByCheckSum
+INFO: Comparison data of files and creating lists of duplicates
+нояб. 07, 2018 9:40:00 ПП Main createHtmlByCheckSum
+INFO: Write list of dublicates in html-file
+нояб. 07, 2018 9:40:00 ПП Main createHtmlByCheckSum
+INFO: Dublicates null null null
+нояб. 07, 2018 9:40:00 ПП Main createHtmlByCheckSum
+INFO: C:\Users\User\Desktop\music\zveri_-_rayony-kvartaly.mp3
+нояб. 07, 2018 9:40:00 ПП Main createHtmlByCheckSum
+INFO: C:\Users\User\Desktop\music\zveri_-_tancuy.mp3
